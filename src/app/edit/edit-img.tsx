@@ -14,8 +14,8 @@ export function Editimg({searchParams: { publicId},}:
     }}
     ) {
     console.log(publicId)
-    const [transformation, setTransformation] = useState<undefined | "generative-fill"|"blur"|"grayscale"|'pixelate'
-    |'removebackground'
+    const [transformation, setTransformation] = useState<undefined |"blur"|"grayscale"|'pixelate'
+    
     >()
         const [prompt, setPrompt] = useState("")
         const [pendingprompt, setPendingPrompt] = useState("")
@@ -32,7 +32,7 @@ export function Editimg({searchParams: { publicId},}:
     setTransformation(undefined)
     }
     }> Clear All</Button>
-
+{/* 
     <div className="flex flex-col gap-4"><Button onClick={()=>{
         setTransformation('generative-fill')
     setPrompt(pendingprompt)
@@ -40,17 +40,17 @@ export function Editimg({searchParams: { publicId},}:
         }}> Apply Generative fill</Button>
     <Label>Prompt</Label>
     <Input value={pendingprompt} onChange={e=>setPendingPrompt((e).currentTarget.value)}/>
-    </div>
+    </div> */}
     <Button onClick={()=>setTransformation('blur')}> Apply blur</Button>
     <Button onClick={()=>setTransformation('grayscale')}> Convert to gray</Button>
     <Button onClick={()=>setTransformation('pixelate')}> Apply pixelate</Button>
-    <Button onClick={()=>setTransformation('removebackground')}> Removebackground</Button>
+    {/* <Button onClick={()=>setTransformation('removebackground')}> Removebackground</Button> */}
     </div>
     <div className="grid grid-cols-2 gap-12">
    <CldImage  src={publicId}
                 width="500"
                 height="400" alt="image"   />
-   {transformation==="generative-fill"&&(
+   {/* {transformation==="generative-fill"&&(
     <CldImage  src={publicId}
     width="1400"
     height="900" alt="image" 
@@ -59,7 +59,7 @@ export function Editimg({searchParams: { publicId},}:
         prompt,
     }}
     />
-   )}
+   )} */}
    {transformation==="blur"&&(
     <CldImage  src={publicId}
     width="1200"
@@ -81,13 +81,13 @@ export function Editimg({searchParams: { publicId},}:
     height="1400" alt="image" 
     />
    )}
-   {transformation==="removebackground"&&(
+   {/* {transformation==="removebackground"&&(
     <CldImage  src={publicId}
     width="1200"
     removeBackground
     height="700" alt="image" 
     />
-   )}
+   )} */}
    </div>
     </div>
     </section>
